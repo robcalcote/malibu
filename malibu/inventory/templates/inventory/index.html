@@ -1,0 +1,9 @@
+{% if products %}
+    <ul>
+    {% for item in products %}
+        <li><a href="/inventory/{{ item.sku_number }}/">{{ item.descriptionShort_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No inventory items are available.</p>
+{% endif %}
