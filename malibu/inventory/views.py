@@ -5,11 +5,11 @@ from .models import Product
 
 
 def index(request):
-    products = Product.objects.order_by('descriptionShort_text')
+    products = Product.objects.order_by('short_description')
     context = {'products': products}
     return render(request, 'inventory/index.html', context)
 
 
-def detail(request, sku_number):
-    item = get_object_or_404(Product, pk=sku_number)
+def detail(request, id):
+    item = get_object_or_404(Product, pk=id)
     return render(request, 'inventory/detail.html', {'item': item})

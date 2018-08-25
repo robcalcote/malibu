@@ -1,7 +1,7 @@
 {% if products %}
     <ul>
     {% for item in products %}
-        <li><a href="/inventory/{{ item.sku_number }}/">{{ item.descriptionShort_text }}</a></li>
+        <li><a href="/inventory/{{ item.id }}/">{{ item.short_description }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
