@@ -1,11 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Malibu|Inventory{% endblock %}
+
+{% block content %}
+
 {% if products %}
-    <ul>
-    {% for item in products %}
-        <li><a href="/inventory/{{ item.id }}/">{{ item.short_description }}</a></li>
-    {% endfor %}
-    </ul>
+    <table class="table table-sm table-borderless">
+        <thead>
+            <tr>
+                <th scope="col">Short Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in products %}
+            <tr>
+                <td scope="row"><a href="/inventory/{{ item.id }}/">{{ item.short_description }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% else %}
     <p>No inventory items are available.</p>
 {% endif %}
+
+{% endblock %}
 
 <!-- Test Comment -->
